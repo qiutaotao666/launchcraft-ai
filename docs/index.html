@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="LaunchCraft AI 内容产品原型" />
+    <title>LaunchCraft | AI 内容产品原型</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="LaunchCraft 首页">
+        <span class="brand-mark">LC</span>
+        <span>
+          <strong>LaunchCraft</strong>
+          <small>AI content product lab</small>
+        </span>
+      </a>
+      <div class="topbar-meta">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span>本地演示引擎</span>
+        <span class="meta-divider"></span>
+        <span>接口已预留</span>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <section class="brief-panel" aria-labelledby="brief-title">
+        <div class="section-label">01 / BRIEF</div>
+        <h1 id="brief-title">把一个选题，变成一版能打开的页面。</h1>
+        <p class="lede">
+          输入产品、受众和表达语气。LaunchCraft 会生成结构化内容，
+          并在右侧实时预览。当前版本使用本地模板，可继续接入大模型。
+        </p>
+
+        <form id="generator-form" class="generator-form">
+          <label class="field">
+            <span>产品 / 选题</span>
+            <input
+              id="product"
+              name="product"
+              value="AI 求职项目卡生成器"
+              maxlength="80"
+              autocomplete="off"
+            />
+          </label>
+
+          <label class="field">
+            <span>目标受众</span>
+            <input
+              id="audience"
+              name="audience"
+              value="准备实习的大学生"
+              maxlength="80"
+              autocomplete="off"
+            />
+          </label>
+
+          <div class="field-row">
+            <label class="field">
+              <span>表达语气</span>
+              <select id="tone" name="tone">
+                <option value="professional">克制专业</option>
+                <option value="friendly">轻松友好</option>
+                <option value="bold">有冲击力</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>页面主题</span>
+              <select id="theme" name="theme">
+                <option value="blue">科技蓝</option>
+                <option value="orange">暖橙</option>
+                <option value="mono">极简黑白</option>
+              </select>
+            </label>
+          </div>
+
+          <button id="generate-button" class="primary-button" type="submit">
+            <span>生成页面</span>
+            <span aria-hidden="true">→</span>
+          </button>
+          <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="idea-block">
+          <div class="section-label">QUICK IDEAS</div>
+          <div class="idea-list">
+            <button class="idea-chip" type="button" data-product="AI 简历面试复盘助手" data-audience="准备校招的大学生">面试复盘</button>
+            <button class="idea-chip" type="button" data-product="独立创作者选题工作台" data-audience="内容团队">内容选题</button>
+            <button class="idea-chip" type="button" data-product="小团队数据周报工具" data-audience="创业团队">数据周报</button>
+          </div>
+        </div>
+
+        <details class="api-panel">
+          <summary>查看 API 返回</summary>
+          <pre id="json-output">等待生成...</pre>
+        </details>
+      </section>
+
+      <section class="preview-panel" aria-labelledby="preview-title">
+        <div class="preview-toolbar">
+          <div>
+            <div class="section-label">02 / PREVIEW</div>
+            <h2 id="preview-title">实时页面预览</h2>
+          </div>
+          <div class="toolbar-actions">
+            <button id="copy-button" class="ghost-button" type="button">复制 JSON</button>
+            <button id="download-button" class="ghost-button" type="button">下载 HTML</button>
+          </div>
+        </div>
+
+        <article id="preview" class="preview" data-theme="blue">
+          <div class="preview-topline">
+            <span id="preview-eyebrow">内容产品实验室 / 快速原型</span>
+            <span class="preview-badge">LIVE PREVIEW</span>
+          </div>
+          <h2 id="preview-headline">让准备实习的大学生更快用上 AI 求职项目卡生成器</h2>
+          <p id="preview-subheadline" class="preview-subheadline">
+            把想法变成可演示的产品页面，先拿到真实反馈。
+          </p>
+          <div id="preview-tags" class="tag-row"></div>
+          <div id="preview-features" class="feature-grid"></div>
+          <div class="preview-cta-row">
+            <button id="preview-cta" class="preview-cta" type="button">查看产品方案</button>
+            <span>演示按钮 / 可替换为真实转化入口</span>
+          </div>
+          <details class="preview-faq">
+            <summary>常见问题</summary>
+            <div id="preview-faq"></div>
+          </details>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
